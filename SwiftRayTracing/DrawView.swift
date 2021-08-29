@@ -9,7 +9,7 @@ import UIKit
 
 class DrawView: UIView {
     override func draw(_ rect: CGRect) {
-        drawFillCircle(rect: CGRect(x: 100, y: 100, width: 1000, height: 1000))
+        drawFillCircle(rect: CGRect(x: 100, y: 100, width: 100, height: 100))
     }
 
     private func drawFillCircle(rect: CGRect) {
