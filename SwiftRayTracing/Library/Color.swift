@@ -1,5 +1,5 @@
 //
-//  vec3.swift
+//  Color.swift
 //  SwiftRayTracing
 //
 //  Created by TokyoYoshida on 2021/08/29.
@@ -7,6 +7,4 @@
 
 import Foundation
 
-class vec3 {
-    
-}
+typealias Color = Vec3
