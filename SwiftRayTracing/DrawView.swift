@@ -8,8 +8,8 @@
 import UIKit
 
 class DrawView: UIView {
-    let width = 300
-    let height = 300
+    let width = 256
+    let height = 256
     lazy var drawer: Drawer = Drawer(destView: self, width: width, height: height)
 
     override func draw(_ rect: CGRect) {
