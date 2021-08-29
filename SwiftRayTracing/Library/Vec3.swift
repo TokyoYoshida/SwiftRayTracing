@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Vec3 {
+struct Vec3 {
     var x: Double
     var y: Double
     var z: Double

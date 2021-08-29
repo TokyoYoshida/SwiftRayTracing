@@ -8,17 +8,11 @@
 import UIKit
 
 class DrawView: UIView {
+    lazy var drawer: Drawer = Drawer(destView: self, width: 1000, height: 1000)
+
     override func draw(_ rect: CGRect) {
-        drawFillCircle(rect: CGRect(x: 100, y: 100, width: 100, height: 100))
-    }
-
-    private func drawFillCircle(rect: CGRect) {
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return
+        for _ in 0...1000000 {
+            drawer.draw(color: Color(r: 1, g: 0, b: 0))
         }
-
-        context.setFillColor(UIColor.red.cgColor)
-
-        context.fillEllipse(in: rect)
     }
 }

@@ -5,6 +5,10 @@
 //  Created by TokyoYoshida on 2021/08/29.
 //
 
-import Foundation
+import UIKit
 
-typealias Color = Vec3
+struct Color {
+    var r: CGFloat
+    var g: CGFloat
+    var b: CGFloat
+}

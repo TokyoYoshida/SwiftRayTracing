@@ -11,6 +11,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        drawRayTracing()
     }
 
+    func drawRayTracing() {
+
+    }
 }
