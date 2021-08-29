@@ -15,6 +15,10 @@
 		1E6C326726DB7DC000928DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6C326526DB7DC000928DA5 /* LaunchScreen.storyboard */; };
 		1E6C327226DB7DC000928DA5 /* SwiftRayTracingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C327126DB7DC000928DA5 /* SwiftRayTracingTests.swift */; };
 		1E6C327D26DB7DC000928DA5 /* SwiftRayTracingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C327C26DB7DC000928DA5 /* SwiftRayTracingUITests.swift */; };
+		1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328B26DB7EA800928DA5 /* Vec3.swift */; };
+		1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328D26DB7F3A00928DA5 /* Drawer.swift */; };
+		1E6C329026DB7F6000928DA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328F26DB7F5F00928DA5 /* Color.swift */; };
+		1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C329226DB839E00928DA5 /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		1E6C327826DB7DC000928DA5 /* SwiftRayTracingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRayTracingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6C327C26DB7DC000928DA5 /* SwiftRayTracingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRayTracingUITests.swift; sourceTree = "<group>"; };
 		1E6C327E26DB7DC000928DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E6C328B26DB7EA800928DA5 /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
+		1E6C328D26DB7F3A00928DA5 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		1E6C328F26DB7F5F00928DA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1E6C329226DB839E00928DA5 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,11 @@
 		1E6C325926DB7DBE00928DA5 /* SwiftRayTracing */ = {
 			isa = PBXGroup;
 			children = (
+				1E6C328A26DB7E9700928DA5 /* Library */,
 				1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */,
 				1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */,
 				1E6C325E26DB7DBE00928DA5 /* ViewController.swift */,
+				1E6C329226DB839E00928DA5 /* DrawView.swift */,
 				1E6C326026DB7DBE00928DA5 /* Main.storyboard */,
 				1E6C326326DB7DC000928DA5 /* Assets.xcassets */,
 				1E6C326526DB7DC000928DA5 /* LaunchScreen.storyboard */,
@@ -128,6 +138,16 @@
 			path = SwiftRayTracingUITests;
 			sourceTree = "<group>";
 		};
+		1E6C328A26DB7E9700928DA5 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1E6C328F26DB7F5F00928DA5 /* Color.swift */,
+				1E6C328B26DB7EA800928DA5 /* Vec3.swift */,
+				1E6C328D26DB7F3A00928DA5 /* Drawer.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +158,7 @@
 				1E6C325326DB7DBE00928DA5 /* Sources */,
 				1E6C325426DB7DBE00928DA5 /* Frameworks */,
 				1E6C325526DB7DBE00928DA5 /* Resources */,
+				1E6C329126DB7FEB00928DA5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -253,14 +274,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E6C329126DB7FEB00928DA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --fix\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1E6C325326DB7DBE00928DA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
+				1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */,
+				1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */,
 				1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */,
+				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
+				1E6C329026DB7F6000928DA5 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
