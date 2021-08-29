@@ -8,5 +8,5 @@
 import Foundation
 
 func writeColor(color: Color) {
-    
+
 }
