@@ -15,6 +15,7 @@
 		1E6C326726DB7DC000928DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E6C326526DB7DC000928DA5 /* LaunchScreen.storyboard */; };
 		1E6C327226DB7DC000928DA5 /* SwiftRayTracingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C327126DB7DC000928DA5 /* SwiftRayTracingTests.swift */; };
 		1E6C327D26DB7DC000928DA5 /* SwiftRayTracingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C327C26DB7DC000928DA5 /* SwiftRayTracingUITests.swift */; };
+		1E6C328C26DB7EA800928DA5 /* vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328B26DB7EA800928DA5 /* vec3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1E6C327826DB7DC000928DA5 /* SwiftRayTracingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRayTracingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6C327C26DB7DC000928DA5 /* SwiftRayTracingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRayTracingUITests.swift; sourceTree = "<group>"; };
 		1E6C327E26DB7DC000928DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E6C328B26DB7EA800928DA5 /* vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vec3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		1E6C325926DB7DBE00928DA5 /* SwiftRayTracing */ = {
 			isa = PBXGroup;
 			children = (
+				1E6C328A26DB7E9700928DA5 /* Library */,
 				1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */,
 				1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */,
 				1E6C325E26DB7DBE00928DA5 /* ViewController.swift */,
@@ -126,6 +129,14 @@
 				1E6C327E26DB7DC000928DA5 /* Info.plist */,
 			);
 			path = SwiftRayTracingUITests;
+			sourceTree = "<group>";
+		};
+		1E6C328A26DB7E9700928DA5 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1E6C328B26DB7EA800928DA5 /* vec3.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			files = (
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
 				1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */,
+				1E6C328C26DB7EA800928DA5 /* vec3.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
