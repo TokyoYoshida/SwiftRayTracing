@@ -18,6 +18,7 @@
 		1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328B26DB7EA800928DA5 /* Vec3.swift */; };
 		1E6C328E26DB7F3A00928DA5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328D26DB7F3A00928DA5 /* Utility.swift */; };
 		1E6C329026DB7F6000928DA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328F26DB7F5F00928DA5 /* Color.swift */; };
+		1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C329226DB839E00928DA5 /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		1E6C328B26DB7EA800928DA5 /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
 		1E6C328D26DB7F3A00928DA5 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		1E6C328F26DB7F5F00928DA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1E6C329226DB839E00928DA5 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */,
 				1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */,
 				1E6C325E26DB7DBE00928DA5 /* ViewController.swift */,
+				1E6C329226DB839E00928DA5 /* DrawView.swift */,
 				1E6C326026DB7DBE00928DA5 /* Main.storyboard */,
 				1E6C326326DB7DC000928DA5 /* Assets.xcassets */,
 				1E6C326526DB7DC000928DA5 /* LaunchScreen.storyboard */,
@@ -298,6 +301,7 @@
 			files = (
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
 				1E6C328E26DB7F3A00928DA5 /* Utility.swift in Sources */,
+				1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */,
 				1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */,
 				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
