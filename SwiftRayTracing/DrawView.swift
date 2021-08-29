@@ -8,11 +8,16 @@
 import UIKit
 
 class DrawView: UIView {
-    lazy var drawer: Drawer = Drawer(destView: self, width: 1000, height: 1000)
+    let width = 300
+    let height = 300
+    lazy var drawer: Drawer = Drawer(destView: self, width: width, height: height)
 
     override func draw(_ rect: CGRect) {
-        for _ in 0...1000000 {
-            drawer.draw(color: Color(r: 1, g: 0, b: 0))
+        for j in 0..<height {
+            for i in 0..<width {
+                let color = Color(r: CGFloat(i) / (CGFloat(width) - 1), g: CGFloat(j)/(CGFloat(height) - 1), b: 0.25)
+                drawer.draw(color: color)
+            }
         }
     }
 }
