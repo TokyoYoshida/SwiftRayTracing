@@ -13,8 +13,8 @@ class DrawView: UIView {
     lazy var drawer: Drawer = Drawer(destView: self, width: width, height: height)
 
     override func draw(_ rect: CGRect) {
-        drawGradation()
-//        drawSphere()
+//        drawGradation()
+        drawSphere()
     }
 
     private func drawGradation() {
@@ -26,7 +26,10 @@ class DrawView: UIView {
         }
     }
 
-    private func drawSphere(_ r: Ray) -> Color {
+    private func rayColorBackGround(_ r: Ray) -> Color {
+    }
+
+    private func rayColorSphere(_ r: Ray) -> Color {
         func hitSphere(center: Point3, radius: Double, r: Ray) -> Bool {
             let oc = r.origin - center
             let a = dot(r.origin, r.direction)
