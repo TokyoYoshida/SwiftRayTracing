@@ -20,7 +20,7 @@ class DrawView: UIView {
     private func drawGradation() {
         for j in 0..<height {
             for i in 0..<width {
-                let color = Color(r: Double(i / (width - 1)), g: Double(j/(height - 1)), b: 0.25)
+                let color = Color(r: Double(i) / (Double(width) - 1), g: Double(j)/(Double(height) - 1), b: 0.25)
                 drawer.draw(color: color)
             }
         }
