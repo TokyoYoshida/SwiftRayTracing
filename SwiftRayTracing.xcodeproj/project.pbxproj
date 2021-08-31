@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E30EB1D26DE1598007F2A45 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30EB1C26DE1598007F2A45 /* Ray.swift */; };
+		1E30EB1F26DE16E2007F2A45 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30EB1E26DE16E2007F2A45 /* Math.swift */; };
+		1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */; };
 		1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */; };
 		1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */; };
 		1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C325E26DB7DBE00928DA5 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E30EB1C26DE1598007F2A45 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
+		1E30EB1E26DE16E2007F2A45 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		1E6C325726DB7DBE00928DA5 /* SwiftRayTracing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRayTracing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,8 +116,8 @@
 				1E6C328A26DB7E9700928DA5 /* Library */,
 				1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */,
 				1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */,
-				1E6C325E26DB7DBE00928DA5 /* ViewController.swift */,
 				1E6C329226DB839E00928DA5 /* DrawView.swift */,
+				1E6C325E26DB7DBE00928DA5 /* ViewController.swift */,
 				1E6C326026DB7DBE00928DA5 /* Main.storyboard */,
 				1E6C326326DB7DC000928DA5 /* Assets.xcassets */,
 				1E6C326526DB7DC000928DA5 /* LaunchScreen.storyboard */,
@@ -141,9 +147,12 @@
 		1E6C328A26DB7E9700928DA5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				1E6C328F26DB7F5F00928DA5 /* Color.swift */,
 				1E6C328B26DB7EA800928DA5 /* Vec3.swift */,
+				1E6C328F26DB7F5F00928DA5 /* Color.swift */,
 				1E6C328D26DB7F3A00928DA5 /* Drawer.swift */,
+				1E30EB1C26DE1598007F2A45 /* Ray.swift */,
+				1E30EB1E26DE16E2007F2A45 /* Math.swift */,
+				1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -299,11 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E30EB1D26DE1598007F2A45 /* Ray.swift in Sources */,
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
+				1E30EB1F26DE16E2007F2A45 /* Math.swift in Sources */,
 				1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */,
 				1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */,
 				1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */,
 				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
+				1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
 				1E6C329026DB7F6000928DA5 /* Color.swift in Sources */,
 			);

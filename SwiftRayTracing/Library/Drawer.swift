@@ -25,7 +25,7 @@ class Drawer {
             return
         }
 
-        context.setStrokeColor(UIColor(red: color.r, green: color.g, blue: color.b, alpha: 1).cgColor)
+        context.setStrokeColor(color.cgColor)
         drawDot(context: context, x: cursorX, y: cursorY)
 
         cursorX += 1
