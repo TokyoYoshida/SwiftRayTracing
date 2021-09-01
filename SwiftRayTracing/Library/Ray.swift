@@ -18,4 +18,8 @@ struct Ray {
     public var direction: Vec3 {
         dir
     }
+
+    public func at(_ t: Double) -> Point3 {
+        orig + t * dir
+    }
 }

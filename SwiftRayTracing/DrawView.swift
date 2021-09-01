@@ -59,20 +59,26 @@ class DrawView: UIView {
     }
 
     private func rayColorSphere() {
-        func hitSphere(center: Point3, radius: Double, r: Ray) -> Bool {
+        func hitSphere(center: Point3, radius: Double, r: Ray) -> Double {
             let oc = r.origin - center
             let a = dot(r.direction, r.direction)
             let b = 2.0 * dot(oc, r.direction)
             let c = dot(oc, oc) - radius * radius
             let discriminant = b * b - 4 * a * c
-            return discriminant > 0
+            if discriminant < 0 {
+                return -1
+            } else {
+                return (-b - sqrt(discriminant) / (2.0 * a))
+            }
         }
         func rayColor(r: Ray) -> Color {
-            if hitSphere(center: Point3(0, 0, -1), radius: 0.5, r: r) {
-                return Color(1, 0, 0)
+            var t = hitSphere(center: Point3(0, 0, -1), radius: 0.5, r: r)
+            if t > 0 {
+                let N = unitVector(v: r.at(t) - Vec3(0, 0, -1))
+                return 0.5 * Color(N.x + 1, N.y + 1, N.z + 1)
             }
             let unitDirection = unitVector(v: r.direction)
-            let t = 0.5 * (unitDirection.y + 1.0)
+            t = 0.5 * (unitDirection.y + 1.0)
             return (1.0 - t) * Color(1, 1, 1) + t * Color(0.5, 0.7, 1.0)
         }
 
