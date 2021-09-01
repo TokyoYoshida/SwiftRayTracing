@@ -8,7 +8,6 @@
 import UIKit
 
 class DrawView: UIView {
-
     override func draw(_ rect: CGRect) {
         //        drawGradation()
         rayColorBackGround()
@@ -18,11 +17,11 @@ class DrawView: UIView {
     private func drawGradation() {
         let imageWidth = 256
         let imageHeght = 256
-        let drawer: Drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
+        let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
         for j in 0..<imageHeght {
             for i in 0..<imageWidth {
-                let color = Color(Double(i) / (Double(imageWidth) - 1), Double(j)/(Double(imageHeght) - 1), 0.25)
+                let color = Color(Double(i) / (Double(imageWidth) - 1), Double(j) / (Double(imageHeght) - 1), 0.25)
                 drawer.draw(color: color)
             }
         }
@@ -35,10 +34,10 @@ class DrawView: UIView {
             return (1.0 - t) * Color(1, 1, 1) + t * Color(0.5, 0.7, 1.0)
         }
 
-        let aspectRatio = 16.0/9.0
+        let aspectRatio = 16.0 / 9.0
         let imageWidth = 384
         let imageHeght = Int(Double(imageWidth) / aspectRatio)
-        let drawer: Drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
+        let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
         let viewportHeight = 2.0
         let viewportWidth = aspectRatio * viewportHeight
@@ -47,12 +46,12 @@ class DrawView: UIView {
         let origin = Point3(0, 0, 0)
         let horizonal = Vec3(viewportWidth, 0, 0)
         let vertical = Vec3(0, viewportHeight, 0)
-        let lowerLeftCenter = origin - horizonal/2 - vertical/2 - Vec3(0, 0, fcalLength)
+        let lowerLeftCenter = origin - horizonal / 2 - vertical / 2 - Vec3(0, 0, fcalLength)
         for j in stride(from: imageHeght - 1, to: 0, by: -1) {
             for i in 0..<imageWidth {
                 let u = Double(i) / (Double(imageWidth) - 1)
                 let v = Double(j) / (Double(imageHeght) - 1)
-                let r = Ray(orig: origin, dir: lowerLeftCenter + u*horizonal + v*vertical - origin)
+                let r = Ray(orig: origin, dir: lowerLeftCenter + u * horizonal + v * vertical - origin)
                 let pixcelColor = rayColor(r: r)
                 drawer.draw(color: pixcelColor)
             }
@@ -64,11 +63,11 @@ class DrawView: UIView {
             let oc = r.origin - center
             let a = dot(r.origin, r.direction)
             let b = 2.0 * dot(oc, r.direction)
-            let c = dot(oc, oc) - radius*radius
-            let discriminant = b*b - 4*a*c
+            let c = dot(oc, oc) - radius * radius
+            let discriminant = b * b - 4 * a * c
             return discriminant > 0
         }
-        if  hitSphere(center: Point3(0, 0, -1), radius: 0.5, r: r) {
+        if hitSphere(center: Point3(0, 0, -1), radius: 0.5, r: r) {
             return Color(1, 0, 0)
         }
         let unitDirection = unitVector(v: r.direction)

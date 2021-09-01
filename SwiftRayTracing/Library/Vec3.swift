@@ -12,9 +12,9 @@ struct Vec3 {
     public var y: Double
     public var z: Double
 
-    public var r: Double {x}
-    public var g: Double {y}
-    public var b: Double {z}
+    public var r: Double { x }
+    public var g: Double { y }
+    public var b: Double { z }
 
     public var length: Double {
         sqrt(lengthSquared)
@@ -66,11 +66,11 @@ func * (t: Double, v: Vec3) -> Vec3 {
 }
 
 func * (v: Vec3, t: Double) -> Vec3 {
-    return t * v
+    return t*v
 }
 
 func / (v: Vec3, t: Double) -> Vec3 {
-    return (1/t) * v
+    return (1 / t)*v
 }
 
 typealias Point3 = Vec3
