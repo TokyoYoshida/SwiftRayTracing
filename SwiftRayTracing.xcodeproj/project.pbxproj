@@ -20,7 +20,6 @@
 		1E6C327D26DB7DC000928DA5 /* SwiftRayTracingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C327C26DB7DC000928DA5 /* SwiftRayTracingUITests.swift */; };
 		1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328B26DB7EA800928DA5 /* Vec3.swift */; };
 		1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328D26DB7F3A00928DA5 /* Drawer.swift */; };
-		1E6C329026DB7F6000928DA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328F26DB7F5F00928DA5 /* Color.swift */; };
 		1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C329226DB839E00928DA5 /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +60,6 @@
 		1E6C327E26DB7DC000928DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E6C328B26DB7EA800928DA5 /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
 		1E6C328D26DB7F3A00928DA5 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
-		1E6C328F26DB7F5F00928DA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1E6C329226DB839E00928DA5 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				1E6C328B26DB7EA800928DA5 /* Vec3.swift */,
-				1E6C328F26DB7F5F00928DA5 /* Color.swift */,
 				1E6C328D26DB7F3A00928DA5 /* Drawer.swift */,
 				1E30EB1C26DE1598007F2A45 /* Ray.swift */,
 				1E30EB1E26DE16E2007F2A45 /* Math.swift */,
@@ -317,7 +314,6 @@
 				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
 				1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
-				1E6C329026DB7F6000928DA5 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
