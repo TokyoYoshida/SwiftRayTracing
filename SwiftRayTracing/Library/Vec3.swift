@@ -5,12 +5,16 @@
 //  Created by TokyoYoshida on 2021/08/29.
 //
 
-import Foundation
+import UIKit
 
 struct Vec3 {
     public var x: Double
     public var y: Double
     public var z: Double
+
+    public var r: Double {x}
+    public var g: Double {y}
+    public var b: Double {z}
 
     public var length: Double {
         sqrt(lengthSquared)
@@ -24,6 +28,20 @@ struct Vec3 {
         self.x = x
         self.y = y
         self.z = z
+    }
+
+    init(_ x: Int, _ y: Int, _ z: Int) {
+        self.x = Double(x)
+        self.y = Double(y)
+        self.z = Double(z)
+    }
+
+    public var uiColor: UIColor {
+        UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+    }
+
+    public var cgColor: CGColor {
+        uiColor.cgColor
     }
 }
 
@@ -56,3 +74,4 @@ func / (v: Vec3, t: Double) -> Vec3 {
 }
 
 typealias Point3 = Vec3
+typealias Color = Vec3

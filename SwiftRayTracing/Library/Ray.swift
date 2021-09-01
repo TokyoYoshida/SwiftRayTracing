@@ -8,8 +8,8 @@
 import Foundation
 
 struct Ray {
-    private let orig: Point3
-    private let dir: Vec3
+    let orig: Point3
+    let dir: Vec3
 
     public var origin: Point3 {
         orig
