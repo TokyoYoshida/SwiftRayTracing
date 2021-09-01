@@ -10,9 +10,9 @@ import UIKit
 class DrawView: UIView {
 
     override func draw(_ rect: CGRect) {
-//        drawGradation()
+        //        drawGradation()
         rayColorBackGround()
-//        drawSphere()
+        //        drawSphere()
     }
 
     private func drawGradation() {
