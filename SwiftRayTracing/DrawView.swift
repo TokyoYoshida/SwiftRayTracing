@@ -68,7 +68,7 @@ class DrawView: UIView {
             if discriminant < 0 {
                 return -1
             } else {
-                return (-b - sqrt(discriminant) / (2.0 * a))
+                return (-b - sqrt(discriminant)) / (2.0 * a)
             }
         }
         func rayColor(r: Ray) -> Color {
