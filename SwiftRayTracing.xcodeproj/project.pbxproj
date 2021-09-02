@@ -25,6 +25,7 @@
 		1E700A5926E0BB6F0032322D /* Hittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5826E0BB6F0032322D /* Hittable.swift */; };
 		1E700A5B26E0BB8B0032322D /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5A26E0BB8B0032322D /* Sphere.swift */; };
 		1E700A5D26E0C1F40032322D /* HittableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5C26E0C1F40032322D /* HittableList.swift */; };
+		1E700A5F26E0CFD80032322D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5E26E0CFD80032322D /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		1E700A5826E0BB6F0032322D /* Hittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hittable.swift; sourceTree = "<group>"; };
 		1E700A5A26E0BB8B0032322D /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 		1E700A5C26E0C1F40032322D /* HittableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HittableList.swift; sourceTree = "<group>"; };
+		1E700A5E26E0CFD80032322D /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */,
 				1E700A5626E0BB4C0032322D /* HitRecord.swift */,
 				1E700A5826E0BB6F0032322D /* Hittable.swift */,
+				1E700A5E26E0CFD80032322D /* Camera.swift */,
 				1E700A5C26E0C1F40032322D /* HittableList.swift */,
 				1E700A5A26E0BB8B0032322D /* Sphere.swift */,
 			);
@@ -329,6 +332,7 @@
 				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
 				1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */,
 				1E700A5726E0BB4C0032322D /* HitRecord.swift in Sources */,
+				1E700A5F26E0CFD80032322D /* Camera.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,3 +23,11 @@ func dot(_ u: Vec3, _ v: Vec3) -> Double {
 func unitVector(v: Vec3) -> Vec3 {
     return v / v.length
 }
+
+func randomDouble() -> Double {
+    Double.random(in: 0 ..< 1)
+}
+
+func randomDouble(min: Double, max: Double) -> Double {
+    min + (max - min) * randomDouble()
+}
