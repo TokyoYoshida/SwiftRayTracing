@@ -108,18 +108,6 @@ class DrawView: UIView {
     }
 
     private func drawMultiple() {
-        func hitSphere(center: Point3, radius: Double, r: Ray) -> Double {
-            let oc = r.origin - center
-            let a = r.direction.lengthSquared
-            let halfB = dot(oc, r.direction)
-            let c = oc.lengthSquared - radius * radius
-            let discriminant = halfB * halfB - a * c
-            if discriminant < 0 {
-                return -1
-            } else {
-                return (-halfB - sqrt(discriminant)) / a
-            }
-        }
         func rayColor(r: Ray, world: Hittable) -> Color {
             var rec = HitRecord()
             if world.hit(r: r, tMin: 0, tMax: infinity, rec: &rec) {

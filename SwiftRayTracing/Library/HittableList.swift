@@ -19,12 +19,12 @@ extension HittableList: Hittable {
     public func hit(r: Ray, tMin: Double, tMax: Double, rec: inout HitRecord) -> Bool {
         var tempRec = HitRecord()
         var hitAnything = false
-        //        var closestSoFar = tMax
+        var closestSoFar = tMax
 
         for object in objects {
-            if object.hit(r: r, tMin: tMin, tMax: tMax, rec: &tempRec) {
+            if object.hit(r: r, tMin: tMin, tMax: closestSoFar, rec: &tempRec) {
                 hitAnything = true
-                //                closestSoFar = tempRec.t
+                closestSoFar = tempRec.t
                 rec = tempRec
             }
         }
