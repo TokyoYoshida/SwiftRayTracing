@@ -31,3 +31,9 @@ func randomDouble() -> Double {
 func randomDouble(min: Double, max: Double) -> Double {
     min + (max - min) * randomDouble()
 }
+
+func clamp(_ x: Double, min: Double, max: Double) -> Double {
+    if x < min { return min }
+    if x > max { return max }
+    return x
+}

@@ -136,13 +136,19 @@ class DrawView: UIView {
         world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5))
         world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100))
 
+        let samplesPerPixcel = 100
+        let cam = Camera()
+
         for j in stride(from: imageHeght - 1, to: 0, by: -1) {
             for i in 0..<imageWidth {
-                let u = Double(i) / (Double(imageWidth) - 1)
-                let v = Double(j) / (Double(imageHeght) - 1)
-                let r = Ray(orig: origin, dir: lowerLeftCenter + u * horizonal + v * vertical - origin)
-                let pixcelColor = rayColor(r: r, world: world)
-                drawer.draw(color: pixcelColor)
+                var pixcelColor = Color(0, 0, 0)
+                for s in 0..<samplesPerPixcel {
+                    let u = (Double(i) + randomDouble()) / (Double(imageWidth) - 1)
+                    let v = (Double(j) + randomDouble()) / (Double(imageHeght) - 1)
+                    let r = cam.getRay(u: u, v: v)
+                    pixcelColor += rayColor(r: r, world: world)
+                }
+                drawer.draw(color: pixcelColor, samplesPerPixcel: samplesPerPixcel)
             }
         }
     }

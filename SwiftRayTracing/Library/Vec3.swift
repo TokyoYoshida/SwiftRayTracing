@@ -70,7 +70,11 @@ func * (v: Vec3, t: Double) -> Vec3 {
 }
 
 func / (v: Vec3, t: Double) -> Vec3 {
-    return v * (1 / t)
+    return v*(1 / t)
+}
+
+func += (lhs: inout Vec3, rhs: Vec3) {
+    lhs = lhs + rhs
 }
 
 typealias Point3 = Vec3
