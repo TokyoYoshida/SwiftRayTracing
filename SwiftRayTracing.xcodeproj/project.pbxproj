@@ -21,6 +21,10 @@
 		1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328B26DB7EA800928DA5 /* Vec3.swift */; };
 		1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C328D26DB7F3A00928DA5 /* Drawer.swift */; };
 		1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C329226DB839E00928DA5 /* DrawView.swift */; };
+		1E700A5726E0BB4C0032322D /* HitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5626E0BB4C0032322D /* HitRecord.swift */; };
+		1E700A5926E0BB6F0032322D /* Hittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5826E0BB6F0032322D /* Hittable.swift */; };
+		1E700A5B26E0BB8B0032322D /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5A26E0BB8B0032322D /* Sphere.swift */; };
+		1E700A5D26E0C1F40032322D /* HittableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5C26E0C1F40032322D /* HittableList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		1E6C328B26DB7EA800928DA5 /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
 		1E6C328D26DB7F3A00928DA5 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 		1E6C329226DB839E00928DA5 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		1E700A5626E0BB4C0032322D /* HitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRecord.swift; sourceTree = "<group>"; };
+		1E700A5826E0BB6F0032322D /* Hittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hittable.swift; sourceTree = "<group>"; };
+		1E700A5A26E0BB8B0032322D /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		1E700A5C26E0C1F40032322D /* HittableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HittableList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +158,10 @@
 				1E30EB1C26DE1598007F2A45 /* Ray.swift */,
 				1E30EB1E26DE16E2007F2A45 /* Math.swift */,
 				1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */,
+				1E700A5626E0BB4C0032322D /* HitRecord.swift */,
+				1E700A5826E0BB6F0032322D /* Hittable.swift */,
+				1E700A5C26E0C1F40032322D /* HittableList.swift */,
+				1E700A5A26E0BB8B0032322D /* Sphere.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -306,13 +318,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E30EB1D26DE1598007F2A45 /* Ray.swift in Sources */,
+				1E700A5926E0BB6F0032322D /* Hittable.swift in Sources */,
+				1E700A5B26E0BB8B0032322D /* Sphere.swift in Sources */,
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
 				1E30EB1F26DE16E2007F2A45 /* Math.swift in Sources */,
 				1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */,
+				1E700A5D26E0C1F40032322D /* HittableList.swift in Sources */,
 				1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */,
 				1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */,
 				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
 				1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */,
+				1E700A5726E0BB4C0032322D /* HitRecord.swift in Sources */,
 				1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
