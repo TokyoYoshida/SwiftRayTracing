@@ -27,10 +27,21 @@ extension Sphere: Hittable {
 
         if discriminant > 0 {
             let root = sqrt(discriminant)
-            let temp = (-halfB - root / a)
+            var temp = (-halfB - root / a)
             if temp < tMax, temp > tMin {
                 rec.t = temp
                 rec.p = r.at(rec.t)
+                let outwardNormal = (rec.p - center) / radius
+                rec.setFaceNormal(r: r, outwardNormal: outwardNormal)
+                rec.normal = (rec.p - center) / radius
+                return true
+            }
+            temp = (-halfB + root) / a
+            if temp < tMax, temp > tMin {
+                rec.t = temp
+                rec.p = r.at(rec.t)
+                let outwardNormal = (rec.p - center) / radius
+                rec.setFaceNormal(r: r, outwardNormal: outwardNormal)
                 rec.normal = (rec.p - center) / radius
                 return true
             }
