@@ -9,10 +9,14 @@ import Foundation
 
 class HittableList {
     var objects: [Hittable] = []
+
+    public func add(_ object: Hittable) {
+        objects.append(object)
+    }
 }
 
 extension HittableList: Hittable {
-    func hit(r: Ray, tMin: Double, tMax: Double, rec: inout HitRecord) -> Bool {
+    public func hit(r: Ray, tMin: Double, tMax: Double, rec: inout HitRecord) -> Bool {
         var tempRec = HitRecord()
         var hitAnything = false
         //        var closestSoFar = tMax

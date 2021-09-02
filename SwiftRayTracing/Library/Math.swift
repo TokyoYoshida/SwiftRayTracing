@@ -7,6 +7,13 @@
 
 import Foundation
 
+let infinity = Double.infinity
+let pi = 3.1415926535897932385
+
+func degreesToRadians(degrees: Double) -> Double {
+    return degrees * pi / 180
+}
+
 func dot(_ u: Vec3, _ v: Vec3) -> Double {
     return u.x * v.x +
         u.y * v.y +
