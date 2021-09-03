@@ -127,9 +127,6 @@ class DrawView: UIView {
         let imageHeght = Int(Double(imageWidth) / aspectRatio)
         let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
-        let viewportHeight = 2.0
-        let viewportWidth = aspectRatio * viewportHeight
-
         let world = HittableList()
         world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5))
         world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100))
