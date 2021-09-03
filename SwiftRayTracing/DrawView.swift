@@ -130,7 +130,6 @@ class DrawView: UIView {
         let origin = Point3(0, 0, 0)
         let horizonal = Vec3(viewportWidth, 0, 0)
         let vertical = Vec3(0, viewportHeight, 0)
-        let lowerLeftCenter = origin - horizonal / 2 - vertical / 2 - Vec3(0, 0, fcalLength)
 
         let world = HittableList()
         world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5))
@@ -142,7 +141,7 @@ class DrawView: UIView {
         for j in stride(from: imageHeght - 1, to: 0, by: -1) {
             for i in 0..<imageWidth {
                 var pixcelColor = Color(0, 0, 0)
-                for s in 0..<samplesPerPixcel {
+                for _ in 0..<samplesPerPixcel {
                     let u = (Double(i) + randomDouble()) / (Double(imageWidth) - 1)
                     let v = (Double(j) + randomDouble()) / (Double(imageHeght) - 1)
                     let r = cam.getRay(u: u, v: v)

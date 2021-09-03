@@ -1,5 +1,5 @@
 disabled_rules:
-  #shorthand_operator
+  - shorthand_operator
   
 opt_in_rules:
 
