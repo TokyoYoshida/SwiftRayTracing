@@ -46,7 +46,11 @@ class Drawer {
         g*=scale
         b*=scale
 
-        let color = Color(256*clamp(r, min: 0, max: 0.999), 256*clamp(g, min: 0, max: 0.999), 256*clamp(b, min: 0, max: 0.999))
+        let color = Color(
+            clamp(r, min: 0, max: 1),
+            clamp(g, min: 0, max: 1),
+            clamp(b, min: 0, max: 1)
+        )
         draw(color: color)
     }
 
