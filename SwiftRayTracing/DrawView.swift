@@ -115,7 +115,7 @@ class DrawView: UIView {
             var rec = HitRecord()
             if world.hit(r: r, tMin: 0, tMax: infinity, rec: &rec) {
                 let target = rec.p + rec.normal + randomInUnitSphere()
-                return 0.5 * rayColor(r: Ray(orig: rec.p, dir: target - rec.p), world: world, depth: depth-1)
+                return 0.5 * rayColor(r: Ray(orig: rec.p, dir: target - rec.p), world: world, depth: depth - 1)
             }
             let unitDirection = unitVector(v: r.direction)
             let t = 0.5 * (unitDirection.y + 1.0)
