@@ -43,6 +43,14 @@ struct Vec3 {
     public var cgColor: CGColor {
         uiColor.cgColor
     }
+
+    public static func random() -> Vec3 {
+        Vec3(randomDouble(), randomDouble(), randomDouble())
+    }
+
+    public static func random(min: Double, max: Double) -> Vec3 {
+        Vec3(randomDouble(min: min, max: max), randomDouble(min: min, max: max), randomDouble(min: min, max: max))
+    }
 }
 
 func + (lhs: Vec3, rhs: Vec3) -> Vec3 {
