@@ -27,7 +27,7 @@ extension Sphere: Hittable {
 
         if discriminant > 0 {
             let root = sqrt(discriminant)
-            var temp = (-halfB - root / a)
+            var temp = (-halfB - root) / a
             if temp < tMax, temp > tMin {
                 rec.t = temp
                 rec.p = r.at(rec.t)
