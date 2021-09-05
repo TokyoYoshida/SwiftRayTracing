@@ -42,9 +42,9 @@ class Drawer {
 
         let scale = 1.0 / Double(samplesPerPixcel)
 
-        r*=scale
-        g*=scale
-        b*=scale
+        r = sqrt(scale * r)
+        g = sqrt(scale * g)
+        b = sqrt(scale * b)
 
         let color = Color(
             clamp(r, min: 0, max: 1),
