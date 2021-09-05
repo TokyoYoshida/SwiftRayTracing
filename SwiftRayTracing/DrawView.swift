@@ -108,10 +108,14 @@ class DrawView: UIView {
     }
 
     private func drawMultiple() {
-        func rayColor(r: Ray, world: Hittable) -> Color {
+        func rayColor(r: Ray, world: Hittable, depth: Int) -> Color {
+            guard depth > 0 else {
+                return Color(0, 0, 0)
+            }
             var rec = HitRecord()
             if world.hit(r: r, tMin: 0, tMax: infinity, rec: &rec) {
-                return 0.5 * (rec.normal + Color(1, 1, 1))
+                let target = rec.p + rec.normal + randomInUnitSphere()
+                return 0.5 * rayColor(r: Ray(orig: rec.p, dir: target - rec.p), world: world, depth: depth - 1)
             }
             let unitDirection = unitVector(v: r.direction)
             let t = 0.5 * (unitDirection.y + 1.0)
@@ -123,26 +127,29 @@ class DrawView: UIView {
         let imageHeght = Int(Double(imageWidth) / aspectRatio)
         let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
-        let viewportHeight = 2.0
-        let viewportWidth = aspectRatio * viewportHeight
-        let fcalLength = 1.0
-
-        let origin = Point3(0, 0, 0)
-        let horizonal = Vec3(viewportWidth, 0, 0)
-        let vertical = Vec3(0, viewportHeight, 0)
-        let lowerLeftCenter = origin - horizonal / 2 - vertical / 2 - Vec3(0, 0, fcalLength)
-
         let world = HittableList()
         world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5))
         world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100))
 
+        let samplesPerPixcel = 100
+        let cam = Camera()
+
+        let maxDepth = 50
+
         for j in stride(from: imageHeght - 1, to: 0, by: -1) {
+            if j % 10 == 0 {
+                let progress = Int(Double(imageHeght - 1 - j) / Double(imageHeght) * 100)
+                print("progress = \(progress)%")
+            }
             for i in 0..<imageWidth {
-                let u = Double(i) / (Double(imageWidth) - 1)
-                let v = Double(j) / (Double(imageHeght) - 1)
-                let r = Ray(orig: origin, dir: lowerLeftCenter + u * horizonal + v * vertical - origin)
-                let pixcelColor = rayColor(r: r, world: world)
-                drawer.draw(color: pixcelColor)
+                var pixcelColor = Color(0, 0, 0)
+                for _ in 0..<samplesPerPixcel {
+                    let u = (Double(i) + randomDouble()) / (Double(imageWidth) - 1)
+                    let v = (Double(j) + randomDouble()) / (Double(imageHeght) - 1)
+                    let r = cam.getRay(u: u, v: v)
+                    pixcelColor += rayColor(r: r, world: world, depth: maxDepth)
+                }
+                drawer.draw(color: pixcelColor, samplesPerPixcel: samplesPerPixcel)
             }
         }
     }
