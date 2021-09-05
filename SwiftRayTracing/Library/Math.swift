@@ -65,3 +65,16 @@ func clamp(_ x: Double, min: Double, max: Double) -> Double {
 func refrect(v: Vec3, n: Vec3) -> Vec3 {
     return v - 2 * dot(v, n) * n
 }
+
+func refract(uv: Vec3, n: Vec3, etaiOverEtat: Double) -> Vec3 {
+    let cosTheta = dot(-1 * uv, n)
+    let rOutParallel = etaiOverEtat * (uv + cosTheta * n)
+    let rOutPerp = -1 * sqrt(1.0 - rOutParallel.lengthSquared) * n
+    return rOutParallel + rOutPerp
+}
+
+func schlick(cosine: Double, refIdx: Double) -> Double {
+    var r0 = (1 - refIdx) / (1 + refIdx)
+    r0 = r0 * r0
+    return r0 + (1 - r0) * pow(1 - cosine, 5)
+}
