@@ -54,3 +54,7 @@ func clamp(_ x: Double, min: Double, max: Double) -> Double {
     if x > max { return max }
     return x
 }
+
+func refrect(v: Vec3, n: Vec3) -> Vec3 {
+    return v - 2 * dot(v, n) * n
+}
