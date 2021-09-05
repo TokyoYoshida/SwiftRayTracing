@@ -26,6 +26,12 @@ class Dielectric: Material {
             scatterd = Ray(orig: rec.p, dir: reflected)
             return true
         }
+        let refrectProb = schlick(cosine: cosTheta, refIdx: etaiOverEtat)
+        if randomDouble() < refrectProb {
+            let reflected = refrect(v: unitDirection, n: rec.normal)
+            scatterd = Ray(orig: rec.p, dir: reflected)
+            return true
+        }
         let refracted = refract(uv: unitDirection, n: rec.normal, etaiOverEtat: Double(etaiOverEtat))
         scatterd = Ray(orig: rec.p, dir: refracted)
         return true
