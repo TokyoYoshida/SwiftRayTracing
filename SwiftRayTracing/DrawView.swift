@@ -136,7 +136,7 @@ class DrawView: UIView {
         world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5, mat: Lambertian(albedo: Color(0.7, 0.3, 0.3))))
         world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100, mat: Lambertian(albedo: Color(0.8, 0.8, 0))))
         world.add(Sphere(center: Point3(1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.6, 0.2), fuzz: 0.3)))
-        world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.8, 0.8), fuzz: 1)))
+        world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Dielectric(refIdx: 1.5)))
 
         let samplesPerPixcel = 10
         let cam = Camera()

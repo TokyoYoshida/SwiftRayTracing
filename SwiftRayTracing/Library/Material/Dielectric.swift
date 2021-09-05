@@ -24,6 +24,13 @@ class Dielectric: Material {
         }
 
         let unitDirection = unitVector(v: rIn.direction)
+        let cosTheta = fmin(dot(-1 * unitDirection, rec.normal), 1)
+        let sinTheta = sqrt(1.0 - cosTheta * cosTheta)
+        if etaiOverEtat * sinTheta > 1.0 {
+            let reflected = refrect(v: unitDirection, n: rec.normal)
+            scatterd = Ray(orig: rec.p, dir: reflected)
+            return true
+        }
         let refracted = refract(uv: unitDirection, n: rec.normal, etaiOverEtat: Double(etaiOverEtat))
         scatterd = Ray(orig: rec.p, dir: refracted)
         return true
