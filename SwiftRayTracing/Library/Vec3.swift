@@ -69,6 +69,10 @@ func - (lhs: Vec3, rhs: Vec3) -> Vec3 {
     return result
 }
 
+func * (lhs: Vec3, rhs: Vec3) -> Vec3 {
+    return Vec3(lhs.x*rhs.x, lhs.y*rhs.y, lhs.z*rhs.z)
+}
+
 func * (t: Double, v: Vec3) -> Vec3 {
     return Vec3(v.x*t, v.y*t, v.z*t)
 }

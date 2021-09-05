@@ -113,9 +113,15 @@ class DrawView: UIView {
                 return Color(0, 0, 0)
             }
             var rec = HitRecord()
-            if world.hit(r: r, tMin: 0, tMax: infinity, rec: &rec) {
-                let target = rec.p + randomInHemiSphere(normal: rec.normal)
-                return 0.5 * rayColor(r: Ray(orig: rec.p, dir: target - rec.p), world: world, depth: depth - 1)
+            if world.hit(r: r, tMin: 0.001, tMax: infinity, rec: &rec) {
+                var scattered = Ray(orig: Point3(0, 0, 0), dir: Vec3(0, 0, 0))
+                var attenuation = Color(0, 0, 0)
+                if let mat = rec.mat,
+                   mat.scatter(rIn: r, rec: rec, attenuation: &attenuation, scatterd: &scattered)
+                {
+                    return attenuation * rayColor(r: scattered, world: world, depth: depth - 1)
+                }
+                return Color(0, 0, 0)
             }
             let unitDirection = unitVector(v: r.direction)
             let t = 0.5 * (unitDirection.y + 1.0)
