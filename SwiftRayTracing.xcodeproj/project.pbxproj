@@ -10,6 +10,7 @@
 		1E30EB1D26DE1598007F2A45 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30EB1C26DE1598007F2A45 /* Ray.swift */; };
 		1E30EB1F26DE16E2007F2A45 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30EB1E26DE16E2007F2A45 /* Math.swift */; };
 		1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */; };
+		1E6061CE26E48B18000C7FCB /* Dielectric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6061CD26E48B18000C7FCB /* Dielectric.swift */; };
 		1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */; };
 		1E6C325D26DB7DBE00928DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */; };
 		1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C325E26DB7DBE00928DA5 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		1E30EB1C26DE1598007F2A45 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		1E30EB1E26DE16E2007F2A45 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		1E30EB2026DE1CD0007F2A45 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		1E6061CD26E48B18000C7FCB /* Dielectric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dielectric.swift; sourceTree = "<group>"; };
 		1E6C325726DB7DBE00928DA5 /* SwiftRayTracing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRayTracing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6C325A26DB7DBE00928DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E6C325C26DB7DBE00928DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				1E827F9926E47B1A00FA4095 /* Material.swift */,
 				1E827F9D26E47C0400FA4095 /* Metal.swift */,
+				1E6061CD26E48B18000C7FCB /* Dielectric.swift */,
 				1E827FA026E47F7700FA4095 /* Lambertian.swift */,
 			);
 			path = Material;
@@ -341,6 +344,7 @@
 				1E700A5926E0BB6F0032322D /* Hittable.swift in Sources */,
 				1E700A5B26E0BB8B0032322D /* Sphere.swift in Sources */,
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
+				1E6061CE26E48B18000C7FCB /* Dielectric.swift in Sources */,
 				1E30EB1F26DE16E2007F2A45 /* Math.swift in Sources */,
 				1E6C328E26DB7F3A00928DA5 /* Drawer.swift in Sources */,
 				1E700A5D26E0C1F40032322D /* HittableList.swift in Sources */,
