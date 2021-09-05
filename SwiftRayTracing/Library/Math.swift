@@ -40,6 +40,15 @@ func randomInUnitSphere() -> Vec3 {
     }
 }
 
+func randomInHemiSphere(normal: Vec3) -> Vec3 {
+    let inUnitSphere = randomInUnitSphere()
+    if dot(inUnitSphere, normal) > 0.0 {
+        return inUnitSphere
+    } else {
+        return -1 * inUnitSphere
+    }
+}
+
 func clamp(_ x: Double, min: Double, max: Double) -> Double {
     if x < min { return min }
     if x > max { return max }

@@ -114,7 +114,7 @@ class DrawView: UIView {
             }
             var rec = HitRecord()
             if world.hit(r: r, tMin: 0, tMax: infinity, rec: &rec) {
-                let target = rec.p + rec.normal + randomInUnitSphere()
+                let target = rec.p + randomInHemiSphere(normal: rec.normal)
                 return 0.5 * rayColor(r: Ray(orig: rec.p, dir: target - rec.p), world: world, depth: depth - 1)
             }
             let unitDirection = unitVector(v: r.direction)
@@ -131,7 +131,7 @@ class DrawView: UIView {
         world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5))
         world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100))
 
-        let samplesPerPixcel = 100
+        let samplesPerPixcel = 10
         let cam = Camera()
 
         let maxDepth = 50
