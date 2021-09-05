@@ -33,7 +33,6 @@ extension Sphere: Hittable {
                 rec.p = r.at(rec.t)
                 let outwardNormal = (rec.p - center) / radius
                 rec.setFaceNormal(r: r, outwardNormal: outwardNormal)
-                rec.normal = (rec.p - center) / radius
                 return true
             }
             temp = (-halfB + root) / a
@@ -42,7 +41,6 @@ extension Sphere: Hittable {
                 rec.p = r.at(rec.t)
                 let outwardNormal = (rec.p - center) / radius
                 rec.setFaceNormal(r: r, outwardNormal: outwardNormal)
-                rec.normal = (rec.p - center) / radius
                 return true
             }
         }
