@@ -16,12 +16,7 @@ class Dielectric: Material {
 
     func scatter(rIn: Ray, rec: HitRecord, attenuation: inout Color, scatterd: inout Ray) -> Bool {
         attenuation = Color(1, 1, 1)
-        var etaiOverEtat: Double = 0.0
-        if rec.frontFace {
-            etaiOverEtat = 1.0 / refIdx
-        } else {
-            etaiOverEtat = refIdx
-        }
+        let etaiOverEtat = rec.frontFace ? 1.0 / refIdx : refIdx
 
         let unitDirection = unitVector(v: rIn.direction)
         let cosTheta = fmin(dot(-1 * unitDirection, rec.normal), 1)

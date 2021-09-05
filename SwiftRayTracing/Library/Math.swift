@@ -68,7 +68,7 @@ func refrect(v: Vec3, n: Vec3) -> Vec3 {
 
 func refract(uv: Vec3, n: Vec3, etaiOverEtat: Double) -> Vec3 {
     let cosTheta = dot(-1 * uv, n)
-    let rOutParallel = etaiOverEtat * (uv * cosTheta * n)
+    let rOutParallel = etaiOverEtat * (uv + cosTheta * n)
     let rOutPerp = -1 * sqrt(1.0 - rOutParallel.lengthSquared) * n
-    return rOutParallel - rOutPerp
+    return rOutParallel + rOutPerp
 }
