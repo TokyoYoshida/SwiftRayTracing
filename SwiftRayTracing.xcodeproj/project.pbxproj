@@ -26,6 +26,9 @@
 		1E700A5B26E0BB8B0032322D /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5A26E0BB8B0032322D /* Sphere.swift */; };
 		1E700A5D26E0C1F40032322D /* HittableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5C26E0C1F40032322D /* HittableList.swift */; };
 		1E700A5F26E0CFD80032322D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E700A5E26E0CFD80032322D /* Camera.swift */; };
+		1E827F9A26E47B1A00FA4095 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E827F9926E47B1A00FA4095 /* Material.swift */; };
+		1E827F9E26E47C0400FA4095 /* Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E827F9D26E47C0400FA4095 /* Metal.swift */; };
+		1E827FA126E47F7700FA4095 /* Lambertian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E827FA026E47F7700FA4095 /* Lambertian.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		1E700A5A26E0BB8B0032322D /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 		1E700A5C26E0C1F40032322D /* HittableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HittableList.swift; sourceTree = "<group>"; };
 		1E700A5E26E0CFD80032322D /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		1E827F9926E47B1A00FA4095 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		1E827F9D26E47C0400FA4095 /* Metal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metal.swift; sourceTree = "<group>"; };
+		1E827FA026E47F7700FA4095 /* Lambertian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lambertian.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 		1E6C328A26DB7E9700928DA5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1E827F9F26E47F6100FA4095 /* Material */,
 				1E6C328B26DB7EA800928DA5 /* Vec3.swift */,
 				1E6C328D26DB7F3A00928DA5 /* Drawer.swift */,
 				1E30EB1C26DE1598007F2A45 /* Ray.swift */,
@@ -167,6 +174,16 @@
 				1E700A5A26E0BB8B0032322D /* Sphere.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		1E827F9F26E47F6100FA4095 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				1E827F9926E47B1A00FA4095 /* Material.swift */,
+				1E827F9D26E47C0400FA4095 /* Metal.swift */,
+				1E827FA026E47F7700FA4095 /* Lambertian.swift */,
+			);
+			path = Material;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,7 +346,10 @@
 				1E700A5D26E0C1F40032322D /* HittableList.swift in Sources */,
 				1E6C329326DB839E00928DA5 /* DrawView.swift in Sources */,
 				1E6C325B26DB7DBE00928DA5 /* AppDelegate.swift in Sources */,
+				1E827F9E26E47C0400FA4095 /* Metal.swift in Sources */,
 				1E6C328C26DB7EA800928DA5 /* Vec3.swift in Sources */,
+				1E827F9A26E47B1A00FA4095 /* Material.swift in Sources */,
+				1E827FA126E47F7700FA4095 /* Lambertian.swift in Sources */,
 				1E30EB2126DE1CD0007F2A45 /* UIColor+Ext.swift in Sources */,
 				1E700A5726E0BB4C0032322D /* HitRecord.swift in Sources */,
 				1E700A5F26E0CFD80032322D /* Camera.swift in Sources */,

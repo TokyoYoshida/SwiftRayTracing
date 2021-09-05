@@ -113,9 +113,14 @@ class DrawView: UIView {
                 return Color(0, 0, 0)
             }
             var rec = HitRecord()
-            if world.hit(r: r, tMin: 0, tMax: infinity, rec: &rec) {
-                let target = rec.p + rec.normal + randomInUnitSphere()
-                return 0.5 * rayColor(r: Ray(orig: rec.p, dir: target - rec.p), world: world, depth: depth - 1)
+            if world.hit(r: r, tMin: 0.001, tMax: infinity, rec: &rec) {
+                var scattered = Ray(orig: Point3(0, 0, 0), dir: Vec3(0, 0, 0))
+                var attenuation = Color(0, 0, 0)
+                if let mat = rec.mat,
+                   mat.scatter(rIn: r, rec: rec, attenuation: &attenuation, scatterd: &scattered) {
+                    return attenuation * rayColor(r: scattered, world: world, depth: depth - 1)
+                }
+                return Color(0, 0, 0)
             }
             let unitDirection = unitVector(v: r.direction)
             let t = 0.5 * (unitDirection.y + 1.0)
@@ -128,10 +133,12 @@ class DrawView: UIView {
         let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
         let world = HittableList()
-        world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5))
-        world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100))
+        world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5, mat: Lambertian(albedo: Color(0.7, 0.3, 0.3))))
+        world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100, mat: Lambertian(albedo: Color(0.8, 0.8, 0))))
+        world.add(Sphere(center: Point3(1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.6, 0.2))))
+        world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.8, 0.8))))
 
-        let samplesPerPixcel = 100
+        let samplesPerPixcel = 10
         let cam = Camera()
 
         let maxDepth = 50

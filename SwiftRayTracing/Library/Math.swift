@@ -40,8 +40,28 @@ func randomInUnitSphere() -> Vec3 {
     }
 }
 
+func randomInHemiSphere(normal: Vec3) -> Vec3 {
+    let inUnitSphere = randomInUnitSphere()
+    if dot(inUnitSphere, normal) > 0.0 {
+        return inUnitSphere
+    } else {
+        return -1 * inUnitSphere
+    }
+}
+
+func randomInUnitVector() -> Vec3 {
+    let a = randomDouble(min: 0, max: 2 * pi)
+    let z = randomDouble(min: -1, max: 1)
+    let r = sqrt(1 - z * z)
+    return Vec3(r * cos(a), r * sin(a), z)
+}
+
 func clamp(_ x: Double, min: Double, max: Double) -> Double {
     if x < min { return min }
     if x > max { return max }
     return x
+}
+
+func refrect(v: Vec3, n: Vec3) -> Vec3 {
+    return v - 2 * dot(v, n) * n
 }
