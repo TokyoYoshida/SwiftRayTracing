@@ -132,15 +132,12 @@ class DrawView: UIView {
         let imageHeght = Int(Double(imageWidth) / aspectRatio)
         let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
+        let R = cos(pi / 4)
         let world = HittableList()
-        world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5, mat: Lambertian(albedo: Color(0.1, 0.2, 0.5))))
-        world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100, mat: Lambertian(albedo: Color(0.8, 0.8, 0))))
-        world.add(Sphere(center: Point3(1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.6, 0.2), fuzz: 0.3)))
-        world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Dielectric(refIdx: 1.5)))
-        world.add(Sphere(center: Point3(-1, 0, -1), radius: -0.45, mat: Dielectric(refIdx: 1.5)))
-
+        world.add(Sphere(center: Point3(-R, 0, -1), radius: R, mat: Lambertian(albedo: Color(0, 0, 1))))
+        world.add(Sphere(center: Point3(R, 0, -1), radius: R, mat: Lambertian(albedo: Color(1, 0, 0))))
         let samplesPerPixcel = 10
-        let cam = Camera()
+        let cam = Camera(vfov: 90, aspectRatio: aspectRatio)
 
         let maxDepth = 50
 

@@ -8,15 +8,22 @@
 import Foundation
 
 class Camera {
+    private var vfov: Double
+    private var aspectRatio: Double
     private var origin: Point3
     private var lowerLeftCorner: Point3
     private var horizonal: Vec3
     private var vertical: Vec3
 
-    init() {
-        let aspectRatio: Double = 16 / 9
-        let viewportHeight = 2.0
+    init(vfov: Double, aspectRatio: Double) {
+        self.vfov = vfov
+        self.aspectRatio = aspectRatio
+
+        let theta = degreesToRadians(degrees: vfov)
+        let h = tan(theta / 2)
+        let viewportHeight = 2.0 * h
         let viewportWidth = aspectRatio * viewportHeight
+
         let focalLength = 1.0
 
         origin = Point3(0, 0, 0)
