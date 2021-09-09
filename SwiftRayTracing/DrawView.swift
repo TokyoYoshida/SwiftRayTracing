@@ -140,7 +140,13 @@ class DrawView: UIView {
         world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Dielectric(refIdx: 1.5)))
         world.add(Sphere(center: Point3(-1, 0, -1), radius: -0.45, mat: Dielectric(refIdx: 1.5)))
         let samplesPerPixcel = 10
-        let cam = Camera(lookfrom: Point3(-2, 2, 1), lookat: Point3(0, 0, -1), vup: Vec3(0, 1, 0), vfov: 90, aspectRatio: aspectRatio)
+        let lookfrom = Point3(3, 3, 2)
+        let lookat = Point3(0, 0, -1)
+        let vup = Vec3(0, 1, 0)
+        let distToFocus = (lookfrom - lookat).length
+        let aperture = 2.0
+
+        let cam = Camera(lookfrom: lookfrom, lookat: lookat, vup: vup, vfov: 20, aspectRatio: aspectRatio, aperture: aperture, focusDist: distToFocus)
 
         let maxDepth = 50
 
@@ -154,7 +160,7 @@ class DrawView: UIView {
                 for _ in 0..<samplesPerPixcel {
                     let u = (Double(i) + randomDouble()) / (Double(imageWidth) - 1)
                     let v = (Double(j) + randomDouble()) / (Double(imageHeght) - 1)
-                    let r = cam.getRay(u: u, v: v)
+                    let r = cam.getRay(s: u, t: v)
                     pixcelColor += rayColor(r: r, world: world, depth: maxDepth)
                 }
                 drawer.draw(color: pixcelColor, samplesPerPixcel: samplesPerPixcel)

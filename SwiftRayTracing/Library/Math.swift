@@ -62,6 +62,14 @@ func randomInUnitVector() -> Vec3 {
     return Vec3(r * cos(a), r * sin(a), z)
 }
 
+func randomInUnitDesk() -> Vec3 {
+    while true {
+        let p = Vec3(randomDouble(min: -1, max: 1), randomDouble(min: -1, max: 1), 0)
+        if p.lengthSquared >= 1 { continue }
+        return p
+    }
+}
+
 func clamp(_ x: Double, min: Double, max: Double) -> Double {
     if x < min { return min }
     if x > max { return max }
