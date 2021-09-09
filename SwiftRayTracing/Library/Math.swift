@@ -20,6 +20,12 @@ func dot(_ u: Vec3, _ v: Vec3) -> Double {
         u.z * v.z
 }
 
+func cross(_ u: Vec3, _ v: Vec3) -> Vec3 {
+    return Vec3(u.y * v.z - u.z * v.y,
+                u.z * v.x - u.x * v.z,
+                u.x * v.y - u.y * v.x)
+}
+
 func unitVector(v: Vec3) -> Vec3 {
     return v / v.length
 }

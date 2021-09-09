@@ -8,6 +8,9 @@
 import Foundation
 
 class Camera {
+    private var lookfrom: Point3
+    private var lookat: Point3
+    private var vup: Vec3
     private var vfov: Double
     private var aspectRatio: Double
     private var origin: Point3
@@ -15,7 +18,10 @@ class Camera {
     private var horizonal: Vec3
     private var vertical: Vec3
 
-    init(vfov: Double, aspectRatio: Double) {
+    init(lookfrom: Point3, lookat: Point3, vup: Vec3, vfov: Double, aspectRatio: Double) {
+        self.lookfrom = lookfrom
+        self.lookat = lookat
+        self.vup = vup
         self.vfov = vfov
         self.aspectRatio = aspectRatio
 
@@ -24,12 +30,14 @@ class Camera {
         let viewportHeight = 2.0 * h
         let viewportWidth = aspectRatio * viewportHeight
 
-        let focalLength = 1.0
+        let w = unitVector(v: lookfrom - lookat)
+        let u = unitVector(v: cross(vup, w))
+        let v = cross(w, u)
 
-        origin = Point3(0, 0, 0)
-        horizonal = Vec3(viewportWidth, 0, 0)
-        vertical = Vec3(0, viewportHeight, 0)
-        lowerLeftCorner = origin - horizonal / 2 - vertical / 2 - Vec3(0, 0, focalLength)
+        origin = lookfrom
+        horizonal = viewportWidth * u
+        vertical = viewportHeight * v
+        lowerLeftCorner = origin - horizonal / 2 - vertical / 2 - w
     }
 
     public func getRay(u: Double, v: Double) -> Ray {

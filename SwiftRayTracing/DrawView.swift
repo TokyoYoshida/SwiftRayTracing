@@ -137,7 +137,7 @@ class DrawView: UIView {
         world.add(Sphere(center: Point3(-R, 0, -1), radius: R, mat: Lambertian(albedo: Color(0, 0, 1))))
         world.add(Sphere(center: Point3(R, 0, -1), radius: R, mat: Lambertian(albedo: Color(1, 0, 0))))
         let samplesPerPixcel = 10
-        let cam = Camera(vfov: 90, aspectRatio: aspectRatio)
+        let cam = Camera(lookfrom: Point3(-2, 2, 1), lookat: Point3(0, 0, -1), vup: Vec3(0, 1, 0), vfov: 90, aspectRatio: aspectRatio)
 
         let maxDepth = 50
 
