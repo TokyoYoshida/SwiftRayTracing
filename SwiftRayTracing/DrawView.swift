@@ -187,7 +187,7 @@ class DrawView: UIView {
         let lookat = Point3(0, 0, 0)
         let vup = Vec3(0, 1, 0)
         let distToFocus = 10.0
-        let aperture = 2.0
+        let aperture = 0.1
 
         let cam = Camera(lookfrom: lookfrom, lookat: lookat, vup: vup, vfov: 20, aspectRatio: aspectRatio, aperture: aperture, focusDist: distToFocus)
 
