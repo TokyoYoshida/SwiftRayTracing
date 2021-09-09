@@ -117,7 +117,8 @@ class DrawView: UIView {
                 var scattered = Ray(orig: Point3(0, 0, 0), dir: Vec3(0, 0, 0))
                 var attenuation = Color(0, 0, 0)
                 if let mat = rec.mat,
-                   mat.scatter(rIn: r, rec: rec, attenuation: &attenuation, scatterd: &scattered) {
+                   mat.scatter(rIn: r, rec: rec, attenuation: &attenuation, scatterd: &scattered)
+                {
                     return attenuation * rayColor(r: scattered, world: world, depth: depth - 1)
                 }
                 return Color(0, 0, 0)
@@ -126,21 +127,69 @@ class DrawView: UIView {
             let t = 0.5 * (unitDirection.y + 1.0)
             return (1.0 - t) * Color(1, 1, 1) + t * Color(0.5, 0.7, 1.0)
         }
+        func randomScene() -> HittableList {
+            let world = HittableList()
+
+            let groundMaterial = Lambertian(albedo: Color(0.5, 0.5, 0.5))
+            world.add(Sphere(center: Point3(0, -1000, 0), radius: 1000, mat: groundMaterial))
+
+            for a in -11..<11 {
+                for b in -11..<11 {
+                    let chooseMat = randomDouble()
+                    let center = Point3(Double(a) + 0.9 * randomDouble(), 0.2, Double(b) + 0.9 * randomDouble())
+
+                    if (center - Vec3(4, 0.2, 0)).length > 0.9 {
+                        let sphereMaterial: Material
+                        if chooseMat < 0.8 {
+                            let albedo = Color.random() * Color.random()
+                            sphereMaterial = Lambertian(albedo: albedo)
+                            world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
+                        } else if chooseMat < 0.95 {
+                            let albedo = Color.random(min: 0.5, max: 1)
+                            let fuzz = randomDouble(min: 0, max: 0.5)
+                            sphereMaterial = Metal(albedo: albedo, fuzz: fuzz)
+                            world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
+                        } else {
+                            sphereMaterial = Dielectric(refIdx: 1.5)
+                            world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
+                        }
+                    }
+                }
+            }
+
+            let material1 = Dielectric(refIdx: 1.5)
+            world.add(Sphere(center: Point3(0, 1, 0), radius: 1, mat: material1))
+            let material2 = Lambertian(albedo: Color(0.4, 0.2, 0.1))
+            world.add(Sphere(center: Point3(-4, 1, 0), radius: 1, mat: material2))
+            let material3 = Metal(albedo: Color(0.7, 0.6, 0.5), fuzz: 0.0)
+            world.add(Sphere(center: Point3(4, 1, 0), radius: 1, mat: material3))
+
+            return world
+        }
 
         let aspectRatio = 16.0 / 9.0
         let imageWidth = 384
         let imageHeght = Int(Double(imageWidth) / aspectRatio)
         let drawer = Drawer(destView: self, width: imageWidth, height: imageHeght)
 
-        let R = cos(pi / 4)
-        let world = HittableList()
-        world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5, mat: Lambertian(albedo: Color(0.1, 0.2, 0.5))))
-        world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100, mat: Lambertian(albedo: Color(0.8, 0.8, 0))))
-        world.add(Sphere(center: Point3(1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.6, 0.2), fuzz: 0.3)))
-        world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Dielectric(refIdx: 1.5)))
-        world.add(Sphere(center: Point3(-1, 0, -1), radius: -0.45, mat: Dielectric(refIdx: 1.5)))
+        //        let R = cos(pi / 4)
+        //        let world = HittableList()
+        //        world.add(Sphere(center: Point3(0, 0, -1), radius: 0.5, mat: Lambertian(albedo: Color(0.1, 0.2, 0.5))))
+        //        world.add(Sphere(center: Point3(0, -100.5, -1), radius: 100, mat: Lambertian(albedo: Color(0.8, 0.8, 0))))
+        //        world.add(Sphere(center: Point3(1, 0, -1), radius: 0.5, mat: Metal(albedo: Color(0.8, 0.6, 0.2), fuzz: 0.3)))
+        //        world.add(Sphere(center: Point3(-1, 0, -1), radius: 0.5, mat: Dielectric(refIdx: 1.5)))
+        //        world.add(Sphere(center: Point3(-1, 0, -1), radius: -0.45, mat: Dielectric(refIdx: 1.5)))
+
+        let world = randomScene()
+
         let samplesPerPixcel = 10
-        let cam = Camera(lookfrom: Point3(-2, 2, 1), lookat: Point3(0, 0, -1), vup: Vec3(0, 1, 0), vfov: 90, aspectRatio: aspectRatio)
+        let lookfrom = Point3(13, 2, 3)
+        let lookat = Point3(0, 0, 0)
+        let vup = Vec3(0, 1, 0)
+        let distToFocus = 10.0
+        let aperture = 0.1
+
+        let cam = Camera(lookfrom: lookfrom, lookat: lookat, vup: vup, vfov: 20, aspectRatio: aspectRatio, aperture: aperture, focusDist: distToFocus)
 
         let maxDepth = 50
 
@@ -154,7 +203,7 @@ class DrawView: UIView {
                 for _ in 0..<samplesPerPixcel {
                     let u = (Double(i) + randomDouble()) / (Double(imageWidth) - 1)
                     let v = (Double(j) + randomDouble()) / (Double(imageHeght) - 1)
-                    let r = cam.getRay(u: u, v: v)
+                    let r = cam.getRay(s: u, t: v)
                     pixcelColor += rayColor(r: r, world: world, depth: maxDepth)
                 }
                 drawer.draw(color: pixcelColor, samplesPerPixcel: samplesPerPixcel)
