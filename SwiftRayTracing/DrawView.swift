@@ -107,66 +107,66 @@ class DrawView: UIView {
         }
     }
 
-    private func drawMultiple() {
-        func rayColor(r: Ray, world: Hittable, depth: Int) -> Color {
-            guard depth > 0 else {
-                return Color(0, 0, 0)
-            }
-            var rec = HitRecord()
-            if world.hit(r: r, tMin: 0.001, tMax: infinity, rec: &rec) {
-                var scattered = Ray(orig: Point3(0, 0, 0), dir: Vec3(0, 0, 0))
-                var attenuation = Color(0, 0, 0)
-                if let mat = rec.mat,
-                   mat.scatter(rIn: r, rec: rec, attenuation: &attenuation, scatterd: &scattered)
-                {
-                    return attenuation * rayColor(r: scattered, world: world, depth: depth - 1)
-                }
-                return Color(0, 0, 0)
-            }
-            let unitDirection = unitVector(v: r.direction)
-            let t = 0.5 * (unitDirection.y + 1.0)
-            return (1.0 - t) * Color(1, 1, 1) + t * Color(0.5, 0.7, 1.0)
+    private func rayColor(r: Ray, world: Hittable, depth: Int) -> Color {
+        guard depth > 0 else {
+            return Color(0, 0, 0)
         }
-        func randomScene() -> HittableList {
-            let world = HittableList()
+        var rec = HitRecord()
+        if world.hit(r: r, tMin: 0.001, tMax: infinity, rec: &rec) {
+            var scattered = Ray(orig: Point3(0, 0, 0), dir: Vec3(0, 0, 0))
+            var attenuation = Color(0, 0, 0)
+            if let mat = rec.mat,
+               mat.scatter(rIn: r, rec: rec, attenuation: &attenuation, scatterd: &scattered) {
+                return attenuation * rayColor(r: scattered, world: world, depth: depth - 1)
+            }
+            return Color(0, 0, 0)
+        }
+        let unitDirection = unitVector(v: r.direction)
+        let t = 0.5 * (unitDirection.y + 1.0)
+        return (1.0 - t) * Color(1, 1, 1) + t * Color(0.5, 0.7, 1.0)
+    }
 
-            let groundMaterial = Lambertian(albedo: Color(0.5, 0.5, 0.5))
-            world.add(Sphere(center: Point3(0, -1000, 0), radius: 1000, mat: groundMaterial))
+    private func randomScene() -> HittableList {
+        let world = HittableList()
 
-            for a in -11..<11 {
-                for b in -11..<11 {
-                    let chooseMat = randomDouble()
-                    let center = Point3(Double(a) + 0.9 * randomDouble(), 0.2, Double(b) + 0.9 * randomDouble())
+        let groundMaterial = Lambertian(albedo: Color(0.5, 0.5, 0.5))
+        world.add(Sphere(center: Point3(0, -1000, 0), radius: 1000, mat: groundMaterial))
 
-                    if (center - Vec3(4, 0.2, 0)).length > 0.9 {
-                        let sphereMaterial: Material
-                        if chooseMat < 0.8 {
-                            let albedo = Color.random() * Color.random()
-                            sphereMaterial = Lambertian(albedo: albedo)
-                            world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
-                        } else if chooseMat < 0.95 {
-                            let albedo = Color.random(min: 0.5, max: 1)
-                            let fuzz = randomDouble(min: 0, max: 0.5)
-                            sphereMaterial = Metal(albedo: albedo, fuzz: fuzz)
-                            world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
-                        } else {
-                            sphereMaterial = Dielectric(refIdx: 1.5)
-                            world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
-                        }
+        for a in -11..<11 {
+            for b in -11..<11 {
+                let chooseMat = randomDouble()
+                let center = Point3(Double(a) + 0.9 * randomDouble(), 0.2, Double(b) + 0.9 * randomDouble())
+
+                if (center - Vec3(4, 0.2, 0)).length > 0.9 {
+                    let sphereMaterial: Material
+                    if chooseMat < 0.8 {
+                        let albedo = Color.random() * Color.random()
+                        sphereMaterial = Lambertian(albedo: albedo)
+                        world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
+                    } else if chooseMat < 0.95 {
+                        let albedo = Color.random(min: 0.5, max: 1)
+                        let fuzz = randomDouble(min: 0, max: 0.5)
+                        sphereMaterial = Metal(albedo: albedo, fuzz: fuzz)
+                        world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
+                    } else {
+                        sphereMaterial = Dielectric(refIdx: 1.5)
+                        world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
                     }
                 }
             }
-
-            let material1 = Dielectric(refIdx: 1.5)
-            world.add(Sphere(center: Point3(0, 1, 0), radius: 1, mat: material1))
-            let material2 = Lambertian(albedo: Color(0.4, 0.2, 0.1))
-            world.add(Sphere(center: Point3(-4, 1, 0), radius: 1, mat: material2))
-            let material3 = Metal(albedo: Color(0.7, 0.6, 0.5), fuzz: 0.0)
-            world.add(Sphere(center: Point3(4, 1, 0), radius: 1, mat: material3))
-
-            return world
         }
 
+        let material1 = Dielectric(refIdx: 1.5)
+        world.add(Sphere(center: Point3(0, 1, 0), radius: 1, mat: material1))
+        let material2 = Lambertian(albedo: Color(0.4, 0.2, 0.1))
+        world.add(Sphere(center: Point3(-4, 1, 0), radius: 1, mat: material2))
+        let material3 = Metal(albedo: Color(0.7, 0.6, 0.5), fuzz: 0.0)
+        world.add(Sphere(center: Point3(4, 1, 0), radius: 1, mat: material3))
+
+        return world
+    }
+
+    private func drawMultiple() {
         let aspectRatio = 16.0 / 9.0
         let imageWidth = 384
         let imageHeght = Int(Double(imageWidth) / aspectRatio)
@@ -182,7 +182,7 @@ class DrawView: UIView {
 
         let world = randomScene()
 
-        let samplesPerPixcel = 10
+        let samplesPerPixcel = 1
         let lookfrom = Point3(13, 2, 3)
         let lookat = Point3(0, 0, 0)
         let vup = Vec3(0, 1, 0)
