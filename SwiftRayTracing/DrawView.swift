@@ -143,6 +143,8 @@ class DrawView: UIView {
                         let albedo = Color.random() * Color.random()
                         sphereMaterial = Lambertian(albedo: albedo)
                         world.add(Sphere(center: center, radius: 0.2, mat: sphereMaterial))
+                        let center2 = center + Vec3(0, randomDouble(min: 0, max: 0.5), 0)
+                        world.add(MovingSphere(center0: center, center1: center2, time0: 0, time1: 1, radius: 0.2, mat: sphereMaterial))
                     } else if chooseMat < 0.95 {
                         let albedo = Color.random(min: 0.5, max: 1)
                         let fuzz = randomDouble(min: 0, max: 0.5)
@@ -187,9 +189,9 @@ class DrawView: UIView {
         let lookat = Point3(0, 0, 0)
         let vup = Vec3(0, 1, 0)
         let distToFocus = 10.0
-        let aperture = 0.1
+        let aperture = 0.0
 
-        let cam = Camera(lookfrom: lookfrom, lookat: lookat, vup: vup, vfov: 20, aspectRatio: aspectRatio, aperture: aperture, focusDist: distToFocus)
+        let cam = Camera(lookfrom: lookfrom, lookat: lookat, vup: vup, vfov: 20, aspectRatio: aspectRatio, aperture: aperture, focusDist: distToFocus, t0: 0, t1: 1)
 
         let maxDepth = 50
 
