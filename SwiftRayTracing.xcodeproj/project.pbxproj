@@ -30,6 +30,7 @@
 		1E827F9A26E47B1A00FA4095 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E827F9926E47B1A00FA4095 /* Material.swift */; };
 		1E827F9E26E47C0400FA4095 /* Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E827F9D26E47C0400FA4095 /* Metal.swift */; };
 		1E827FA126E47F7700FA4095 /* Lambertian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E827FA026E47F7700FA4095 /* Lambertian.swift */; };
+		1ED8020726EC5A9600A4D068 /* MovingSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8020626EC5A9600A4D068 /* MovingSphere.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		1E827F9926E47B1A00FA4095 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		1E827F9D26E47C0400FA4095 /* Metal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metal.swift; sourceTree = "<group>"; };
 		1E827FA026E47F7700FA4095 /* Lambertian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lambertian.swift; sourceTree = "<group>"; };
+		1ED8020626EC5A9600A4D068 /* MovingSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingSphere.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				1E700A5E26E0CFD80032322D /* Camera.swift */,
 				1E700A5C26E0C1F40032322D /* HittableList.swift */,
 				1E700A5A26E0BB8B0032322D /* Sphere.swift */,
+				1ED8020626EC5A9600A4D068 /* MovingSphere.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				1E30EB1D26DE1598007F2A45 /* Ray.swift in Sources */,
 				1E700A5926E0BB6F0032322D /* Hittable.swift in Sources */,
 				1E700A5B26E0BB8B0032322D /* Sphere.swift in Sources */,
+				1ED8020726EC5A9600A4D068 /* MovingSphere.swift in Sources */,
 				1E6C325F26DB7DBE00928DA5 /* ViewController.swift in Sources */,
 				1E6061CE26E48B18000C7FCB /* Dielectric.swift in Sources */,
 				1E30EB1F26DE16E2007F2A45 /* Math.swift in Sources */,
